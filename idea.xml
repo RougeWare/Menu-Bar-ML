@@ -1,0 +1,22 @@
+<menu id="APP" title="$APP_MENU_NAME">
+  <group>
+    <item id="ABOUT" title="About $APP_NAME" />
+    <item id="SETTINGS" title="Settings" />
+  </group>
+  <group>
+    <item id="QUIT" title="Quit $APP_NAME" />
+  </group>
+</menu>
+<menu id="EDIT" title="Edit">
+  <group>
+    <item id="CUT" shortcut="Ctrl+X" shortcut-osx="Cmd+X" title="Cut" />
+    <item id="COPY" shortcut="Ctrl+C" shortcut-osx="Cmd+C" title="Copy" />
+    <item id="PASTE" shortcut="Ctrl+V" shortcut-osx="Cmd+V" title="Paste" />
+  </group>
+  <group>
+    <menu id="FIND" title="Find">
+      <item id="FIND" shortcut="Ctrl+F" shortcut-osx="Cmd+F" hasFurtherActions title="Find" />
+      <item id="FIND_REPLACE" shortcut="Ctrl+H" shortcut-osx="Cmd+Opt+F" hasFurtherActions title="Find and Replace" />
+    </menu>
+  <group>
+</menu>
