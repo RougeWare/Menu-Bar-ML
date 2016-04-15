@@ -72,12 +72,12 @@ This represents a grouping of items andor menus. Once rendered, if two groups ar
 ## Universal attributes
 Well, not _entirely_ universal; these can't be applied to the single parent element which represents the menu bar.
 
-- `only`, which requires an [OS Specifier](#user-content-os-specifiers), allows a control to only be used on a particular platform.
+- `only`, which requires a [Platform Specifier](#user-content-os-specifiers), allows a control to only be used on a particular platform.
 
-## OS specifiers
+### Platform Specifiers
 To allow for more familiarity for users across many environments, elements can optionally specify alternate attributes for specific operating systems using one of the following, where more specific and newer ones override less specific and older ones. Others not specified here may be used if necessary, but their usage would be proprietary or de-facto, so beware when using them as they may be defined in future versions of this spec. 
 
-OS Specifiers can be appended to **any attribute** to override it for a specific operating system. For example, `<item id="COPY" shortcut="Ctrl+C" shortcut-osx="Cmd+C" title="Copy" />` sets the default keyboard shortcut to `Ctrl+C`, but makes a special exception to allow users of Mac OS X to use `Cmd+C` instead. On the aesthetic side, `<item id="SETTINGS" title="Settings" title-osx="Preferences" hasFurtherActions />` lets users stay comfortable knowing where a menu item goes (most see `Settings`, but Mac OS X users see `Preferences`), even though there's absolutely no functional difference.
+Platform Specifiers can be appended to **any attribute** to override it for a specific operating system. For example, `<item id="COPY" shortcut="Ctrl+C" shortcut-osx="Cmd+C" title="Copy" />` sets the default keyboard shortcut to `Ctrl+C`, but makes a special exception to allow users of Mac OS X to use `Cmd+C` instead. On the aesthetic side, `<item id="SETTINGS" title="Settings" title-osx="Preferences" hasFurtherActions />` lets users stay comfortable knowing where a menu item goes (most see `Settings`, but Mac OS X users see `Preferences`), even though there's absolutely no functional difference.
 
   - `-win` for any version of Windows
     - `-win-9x` for Windows 95 and 98
