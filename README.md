@@ -33,6 +33,11 @@ Here's the sample code I'll be referencing throughout this explanation. If I cha
       </menu>
     <group>
   </menu>
+  <menu id="VIEW" title="View">
+    <group only-osx>
+      <item id="HIDE" shortcut="Cmd+H" title="Hide" />
+    </group>
+  </menu>
 </menu>
 ```
 
@@ -56,13 +61,18 @@ An item is an endpoint action item.
 - Items which provide more actions after selected (e.g. pop up a dialog) are _encouraged_ to have a `hasFurtherActions` attribute. The UI should indicate this, usually with an ellipsis.
 - Items which are to be explicitly disabled by default should specify the `disabled` attribute.
 - Items which are to be explicitly not shown by default should specify the `hidden` attribute.
-- Items are _encouraged_ to have a `shortcut` attribute, which allows you to specify a keyboard shortcut which will activate the item. This is a DSL which is elaborated upon [below](user-content-shortcut-value-dsl).
+- Items are _encouraged_ to have a `shortcut` attribute, which allows you to specify a keyboard shortcut which will activate the item. This is a DSL which is elaborated upon [below](#user-content-shortcut-value-dsl).
 
 ### `<group>`
 This represents a grouping of items andor menus. Once rendered, if two groups are flush against eachother, a horizontal separation line should be drawn on the UI.
 
 - Groups can have an optional `id` attribute, but this is currently ignored.
 - Groups which are to be explicitly not shown by default should specify the `hidden` attribute.
+
+## Universal attributes
+Well, not _entirely_ universal; these can't be applied to the single parent element which represents the menu bar.
+
+- `only`, which requires an [OS Specifier](#user-content-os-specifiers), allows a control to only be used on a particular platform.
 
 ## OS specifiers
 To allow for more familiarity for users across many environments, elements can optionally specify alternate attributes for specific operating systems using one of the following, where more specific and newer ones override less specific and older ones. Others not specified here may be used if necessary, but their usage would be proprietary or de-facto, so beware when using them as they may be defined in future versions of this spec. 
@@ -82,8 +92,8 @@ OS Specifiers can be appended to **any attribute** to override it for a specific
     - `-win-10p` for Windows 10+ for phones
   - `-unx` for any Unix or Unix-like OS
   - `-osx` for any version of Mac OS X
-  - `-ios` for any version of iOS
-  - `-and` for any version of Android
+  - `-ios` for any version of iOS (discouraged)
+  - `-and` for any version of Android (discouraged)
   - `-lnx` for any flavor of Linux desktop environment
     - `-lnx-gnu` for Linux running Gnome
       - `-lnx-gnu-1` for Linux running Gnome 1
