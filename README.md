@@ -57,44 +57,49 @@ An item is an endpoint action item.
 - Items which are to be explicitly disabled by default should specify the `disabled` attribute.
 - Items which are to be explicitly not shown by default should specify the `hidden` attribute.
 - Items are _encouraged_ to have a `shortcut` attribute, which allows you to specify a keyboard shortcut which will activate the item. This is a DSL which is elaborated upon [below](user-content-shortcut-value-dsl).
-  - To allow for more familiarity for users across many environments, items can optionally specify alternate shortcuts for specific operating systems using one of the following, where more specific and newer ones override less specific and older ones. Others not specified here may be used if necessary, but their usage would be proprietary or de-facto, so beware when using them as they may be defined in future versions of this spec.
-    - `shortcut-win` for any version of Windows
-      - `shortcut-win-9x` for Windows 95 and 98
-      - `shortcut-win-xp` for Windows XP+
-      - `shortcut-win-vst` for Windows Vista+
-      - `shortcut-win-phn` for any Windows Phone
-      - `shortcut-win-7` for Windows 7+
-      - `shortcut-win-7p` for Windows Phone 7+
-      - `shortcut-win-8` for Windows 8+
-      - `shortcut-win-8p` for Windows Phone 8+
-      - `shortcut-win-10` for Windows 10+
-      - `shortcut-win-10p` for Windows 10+ for phones
-    - `shortcut-unx` for any Unix or Unix-like OS
-    - `shortcut-osx` for any version of Mac OS X
-    - `shortcut-ios` for any version of iOS
-    - `shortcut-and` for any version of Android
-    - `shortcut-lnx` for any flavor of Linux desktop environment
-      - `shortcut-lnx-gnu` for Linux running Gnome
-        - `shortcut-lnx-gnu-1` for Linux running Gnome 1
-        - `shortcut-lnx-gnu-2` for Linux running Gnome 2
-        - `shortcut-lnx-gnu-3` for Linux running Gnome 3
-      - `shortcut-lnx-kde` for Linux running KDE
-      - `shortcut-lnx-unt` for Linux running Unity
-      - `shortcut-lnx-cnm` for Linux running Cinnamon
-      - `shortcut-lnx-bdg` for Linux running Budgie
-      - `shortcut-lnx-pnt` for Linux running Pantheon
-      - `shortcut-lnx-mat` for Linux running Mate
-      - `shortcut-lnx-lxd` for Linux running Lxde
-      - `shortcut-lnx-xfc` for Linux running Xfce
-    - `shortcut-txt` for text-only interfaces
-      - `shortcut-txt-vi` for VI-like environments
-      - `shortcut-txt-emc` for EMACS-like environments
 
 ### `<group>`
 This represents a grouping of items andor menus. Once rendered, if two groups are flush against eachother, a horizontal separation line should be drawn on the UI.
 
 - Groups can have an optional `id` attribute, but this is currently ignored.
 - Groups which are to be explicitly not shown by default should specify the `hidden` attribute.
+
+## OS specifiers
+To allow for more familiarity for users across many environments, elements can optionally specify alternate attributes for specific operating systems using one of the following, where more specific and newer ones override less specific and older ones. Others not specified here may be used if necessary, but their usage would be proprietary or de-facto, so beware when using them as they may be defined in future versions of this spec. 
+
+OS Specifiers can be appended to **any attribute** to override it for a specific operating system. For example, `<item id="COPY" shortcut="Ctrl+C" shortcut-osx="Cmd+C" title="Copy" />` sets the default keyboard shortcut to `Ctrl+C`, but makes a special exception to allow users of Mac OS X to use `Cmd+C` instead. On the aesthetic side, `<item id="SETTINGS" title="Settings" title-osx="Preferences" hasFurtherActions />` lets users stay comfortable knowing where a menu item goes (most see `Settings`, but Mac OS X users see `Preferences`), even though there's absolutely no functional difference.
+
+  - `-win` for any version of Windows
+    - `-win-9x` for Windows 95 and 98
+    - `-win-xp` for Windows XP+
+    - `-win-vst` for Windows Vista+
+    - `-win-phn` for any Windows Phone
+    - `-win-7` for Windows 7+
+    - `-win-7p` for Windows Phone 7+
+    - `-win-8` for Windows 8+
+    - `-win-8p` for Windows Phone 8+
+    - `-win-10` for Windows 10+
+    - `-win-10p` for Windows 10+ for phones
+  - `-unx` for any Unix or Unix-like OS
+  - `-osx` for any version of Mac OS X
+  - `-ios` for any version of iOS
+  - `-and` for any version of Android
+  - `-lnx` for any flavor of Linux desktop environment
+    - `-lnx-gnu` for Linux running Gnome
+      - `-lnx-gnu-1` for Linux running Gnome 1
+      - `-lnx-gnu-2` for Linux running Gnome 2
+      - `-lnx-gnu-3` for Linux running Gnome 3
+    - `-lnx-kde` for Linux running KDE
+    - `-lnx-unt` for Linux running Unity
+    - `-lnx-cnm` for Linux running Cinnamon
+    - `-lnx-bdg` for Linux running Budgie
+    - `-lnx-pnt` for Linux running Pantheon
+    - `-lnx-mat` for Linux running Mate
+    - `-lnx-lxd` for Linux running Lxde
+    - `-lnx-xfc` for Linux running Xfce
+  - `-txt` for text-only interfaces
+    - `-txt-vi` for VI-like environments
+    - `-txt-emc` for EMACS-like environments
 
 ## `shortcut` value DSL
 Shortcut values are a DSL which match the following pattern:
@@ -107,3 +112,4 @@ Shortcut values are a DSL which match the following pattern:
 - `Ctrl` = The Control key.
 - `Alt` = The Alt key.
 - `Shift` = The Shift key.
+
