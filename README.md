@@ -114,7 +114,7 @@ OS Specifiers can be appended to **any attribute** to override it for a specific
 ## `shortcut` value DSL
 Shortcut values are a DSL which match the following pattern:
 
-- `Shortcut` = `Modifiers` `Key`
+- `Shortcut` = `Modifier` `"+"` `Key`
 - `Key` = Any singular keyboard key which is not a `Modkey`.
 - `Modifier` = `Modkey` [`"+"` `Modifier`]
 - `Modkey` = (`Cmd`/`Meta`/`Win`) / `Ctrl` / `Alt` / `Shift`
@@ -123,3 +123,9 @@ Shortcut values are a DSL which match the following pattern:
 - `Alt` = The Alt key.
 - `Shift` = The Shift key.
 
+### Examples
+
+- `Ctrl+C` for the standard copy shortcut, Control C.
+- `Win+Tab` for the Windows Task View, but `Cmd+Tab` for the Mac OS X application switcher.
+- `Ctrl+Alt+Del` for the infamous Control Alt Delete shortcut.
+- `Ctrl++` to zoom in with Control + (no escape needed!). Alternatively, `Ctrl+Plus` to avoid it looking wierd, `Ctrl+=` since + is usually a shift character on the = key, or even specifically `Ctrl+NumpadPlus` for only the + key on the number pad. Not all implementations need to recognize these distinctions
